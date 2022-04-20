@@ -35,7 +35,10 @@ export default function Accounts({ setToken }) {
           setError(err.message)
         }
       }
-         
+    } else {
+      setError('email and password are required')
+    }
+    if (email && password && name) {   
       if(modalType === 2) {
         setImp(false)
         try {
@@ -60,7 +63,7 @@ export default function Accounts({ setToken }) {
         }
       }
     } else {
-      setError('Number and password are required')
+      setError('email and password are required')
     }
 }
   
@@ -95,7 +98,7 @@ export default function Accounts({ setToken }) {
 
       <Modal.Footer>
         <h4>{ modalType === 1 ? "Already have an account?" : "Don't have an account?" }</h4>
-        <Button variant="primary" onClick={() => setModalType(modalType === 1 ? 2 : 1, setError(false), setImp(false))}>{ modalType === 1 ? 'Login' : 'Sign Up' }</Button>
+        <Button variant="primary" onClick={() => setModalType(modalType === 1 ? 2 : 1, setError(false), modalType === 2 ? setImp(true) : setImp(false))}>{ modalType === 1 ? 'Login' : 'Sign Up' }</Button>
       </Modal.Footer>
     </Modal>
   )
