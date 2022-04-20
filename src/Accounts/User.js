@@ -7,6 +7,7 @@ export default function Accounts({ setToken }) {
   const [password, setPassword] = useState('')
   const [modalType, setModalType] = useState(1)
   const [error, setError] = useState(null)
+  const [imp, setImp] = useState(true)
 
   
   
@@ -36,6 +37,7 @@ export default function Accounts({ setToken }) {
       }
          
       if(modalType === 2) {
+        setImp(false)
         try {
           const data = {email, password};
           const resp =  await fetch('/user/login',{
@@ -72,8 +74,8 @@ export default function Accounts({ setToken }) {
       <Modal.Body>
         <Form>
           <Form.Group className="mb-3" controlId="formBasicEmail" >
-          <Form.Label>Name</Form.Label>
-            <Form.Control type="text" placeholder="Enter number" value={name} onChange={(e) => setName(e.target.value)} />
+          {imp && <Form.Label>Name</Form.Label>}
+            {imp && <Form.Control type="text" placeholder="Enter number" value={name} onChange={(e) => setName(e.target.value)} />}
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email</Form.Label>
@@ -93,7 +95,7 @@ export default function Accounts({ setToken }) {
 
       <Modal.Footer>
         <h4>{ modalType === 1 ? "Already have an account?" : "Don't have an account?" }</h4>
-        <Button variant="primary" onClick={() => setModalType(modalType === 1 ? 2 : 1, setError(false))}>{ modalType === 1 ? 'Login' : 'Sign Up' }</Button>
+        <Button variant="primary" onClick={() => setModalType(modalType === 1 ? 2 : 1, setError(false), setImp(false))}>{ modalType === 1 ? 'Login' : 'Sign Up' }</Button>
       </Modal.Footer>
     </Modal>
   )
