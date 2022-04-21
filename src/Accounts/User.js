@@ -38,7 +38,7 @@ export default function Accounts({ setToken }) {
     } else {
       setError('email and password are required')
     }
-    if (email && password && name) {   
+    if (email && password) {   
       if(modalType === 2) {
         setImp(false)
         try {

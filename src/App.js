@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import User from './Accounts/User'
 import Todo from './todo/Todo';
 import {Routes, Route, Navigate, BrowserRouter} from "react-router-dom";
+import { Button } from 'react-bootstrap'
 
 function App() {
 
@@ -12,8 +13,14 @@ function App() {
     user && setToken(user)
   }, [])
 
+  const logOut = () => {
+    setToken(null)
+    localStorage.clear()
+  }
+
   return (
     <>
+   {token && <Button variant="outline-secondary" onClick={logOut}>LOG OUT</Button> }
     <BrowserRouter>
      {
        token ? <Routes>

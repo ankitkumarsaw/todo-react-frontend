@@ -130,6 +130,7 @@ const cancel = () => {
   setModal(false)
   setImpText('')
 }
+
       
    
   
@@ -156,9 +157,11 @@ const cancel = () => {
               </Modal.Footer>
             </Modal>
     </div>   
+    
      <div className="container-fluid" style={{"marginTop":"100px"}}>
        <div className="row">{ todoList && todoList.map(todo => <Todomap todoItem={todo} deleteTodo={deleteTodo} updateTodo={updateTodo} key={todo._id} />)}</div>
     </div>
+
     { error && setTimeout(() => setError(), 1000)}
         {success && setTimeout(() => setSuccess(), 1000)}
         { error && <Alert variant="danger">{error}</Alert> }
