@@ -78,11 +78,11 @@ export default function Accounts({ setToken }) {
         <Form>
           <Form.Group className="mb-3" controlId="formBasicEmail" >
           {imp && <Form.Label>Name</Form.Label>}
-            {imp && <Form.Control type="text" placeholder="Enter number" value={name} onChange={(e) => setName(e.target.value)} />}
+            {imp && <Form.Control type="text" placeholder="Enter name" value={name} onChange={(e) => setName(e.target.value)} />}
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email</Form.Label>
-            <Form.Control type="email" placeholder="Enter number" value={email} onChange={(e) => setEmail(e.target.value)} />
+            <Form.Control type="email" placeholder="Enter email" value={email} onChange={(e) => setEmail(e.target.value)} />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Password</Form.Label>
